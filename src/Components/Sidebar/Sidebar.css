@@ -7,6 +7,11 @@
 .sidebar img {
   width: 60px;
   cursor: pointer;
+  transition: all 200ms;
+}
+
+.sidebar img:hover {
+  scale: 1.2;
 }
 
 .sidebar_list {
@@ -27,4 +32,10 @@
   height: 24px;
   width: 24px;
   list-style: none;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.sidebar_list_item:hover {
+  scale: 1.4;
 }

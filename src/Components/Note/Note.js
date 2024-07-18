@@ -4,13 +4,12 @@ import deleteIcon from "../../assets/delete.svg";
 
 import "./Note.css";
 
-let timer = 500,
-  timeout;
 function Note(props) {
   const formatDate = (value) => {
     if (!value) return "";
 
     const date = new Date(value);
+    // array for months 
     const monthNames = [
       "Jan",
       "Feb",
@@ -26,27 +25,24 @@ function Note(props) {
       "Dec",
     ];
 
-    let hrs = date.getHours();
+    let hrs = date.getHours(); // returns in 24 hours format
     let amPm = hrs >= 12 ? "PM" : "AM";
-    hrs = hrs ? hrs : "12";
+    hrs = hrs ? hrs : "12"; // show 12 when hour is 0
     hrs = hrs > 12 ? (hrs = 24 - hrs) : hrs;
+    hrs = hrs < 10 ? "0" + hrs : hrs; // to show single digit like '2' as '02' 
 
     let min = date.getMinutes();
     min = min < 10 ? "0" + min : min;
 
     let day = date.getDate();
-    const month = monthNames[date.getMonth()];
+    // date.getMonth() returns the index of month
+    let month = monthNames[date.getMonth()];
 
     return `${hrs}:${min} ${amPm} ${day} ${month}`;
   };
 
-  const debounce = (func) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(func, timer);
-  };
-
   const updateText = (text, id) => {
-    debounce(() => props.updateText(text, id));
+    props.updateText(text, id);
   };
 
   return (

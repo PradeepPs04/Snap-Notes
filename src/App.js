@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { MdClear } from "react-icons/md";
 
 import NoteContainer from "./Components/NoteContainer/NoteContainer";
 import Sidebar from "./Components/Sidebar/Sidebar";
@@ -6,29 +7,39 @@ import Sidebar from "./Components/Sidebar/Sidebar";
 import "./App.css";
 
 function App() {
-  const [notes, setNotes] = useState(
-    JSON.parse(localStorage.getItem("notes-app")) || []
-  );
+  // getting notes from local storage if available
+  const [allNotes, setAllNotes] = useState(JSON.parse(localStorage.getItem('notes-app')) || []);
+  const [notes, setNotes] = useState(allNotes);
 
   const addNote = (color) => {
-    const tempNotes = [...notes];
+    const tempNotes = [];
+    const tempAllNotes = []
 
-    tempNotes.push({
-      id: Date.now() + "" + Math.floor(Math.random() * 78),
+    const newNote = {
+      id: Date.now() + "" + Math.floor(Math.random() * 78), // generating random id
       text: "",
       time: Date.now(),
       color,
-    });
+    };
+    
+    tempAllNotes.push(newNote);
+    tempAllNotes.push(...allNotes);
+    setAllNotes(tempAllNotes);
+
+    tempNotes.push(newNote);
+    tempNotes.push(...notes);
     setNotes(tempNotes);
   };
 
   const deleteNote = (id) => {
-    const tempNotes = [...notes];
+    const allTempNotes = allNotes.filter((note) => {
+      return note.id !== id;
+    });
+    setAllNotes(allTempNotes);
 
-    const index = tempNotes.findIndex((item) => item.id === id);
-    if (index < 0) return;
-
-    tempNotes.splice(index, 1);
+    const tempNotes = notes.filter((note) => {
+      return note.id !== id;
+    });
     setNotes(tempNotes);
   };
 
@@ -42,18 +53,48 @@ function App() {
     setNotes(tempNotes);
   };
 
+  // storing notes in local storage
   useEffect(() => {
-    localStorage.setItem("notes-app", JSON.stringify(notes));
+    localStorage.setItem("notes-app", JSON.stringify(allNotes));
   }, [notes]);
+
+  
+  const [inputData, setInputData] = useState('');
+
+  const handleInputChange = (event) => {
+    setInputData(event.target.value);
+  }
+
+  const handleClearInput = () => {
+    setInputData('');
+  }
+
+  useEffect( () => {
+    const newNotes = allNotes.filter((note) => {
+      return note.text.toLowerCase().includes(inputData.toLowerCase().trim());
+    });
+    setNotes(newNotes);
+  }, [inputData]);
 
   return (
     <div className="App">
+      
+      <div className="searchbox">
+        <input type="text" placeholder="Search notes" value={inputData} onChange={handleInputChange}></input>
+        <div className="clear-btn" onClick={handleClearInput}>
+        <MdClear />
+        </div>
+      </div>
+
+      <div className="notes-container">
       <Sidebar addNote={addNote} />
       <NoteContainer
         notes={notes}
         deleteNote={deleteNote}
         updateText={updateText}
-      />
+      ></NoteContainer>
+      </div>
+
     </div>
   );
 }

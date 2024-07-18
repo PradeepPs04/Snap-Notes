@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap');
+
+
+.noNotes-heading {
+    color: grey;
+    font-family: "Teachers", sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    word-spacing: 5px;
+}

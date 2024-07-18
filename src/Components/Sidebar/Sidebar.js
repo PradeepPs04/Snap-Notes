@@ -4,8 +4,8 @@ import plusIcon from "../../assets/plus.png";
 
 import "./Sidebar.css";
 
-function Sidebar(props) {
-  const colors = ["#fe9b72", "#fec971", " #00d4fe", "#b693fd", "#e4ee91"];
+function Sidebar({addNote}) {
+  const colors = ["#fe9b72", "#fec971", " #00d4fe", "#b693fd", "#e4ee91", "#B6C7AA"];
 
   const [listOpen, setListOpen] = useState(false);
 
@@ -18,7 +18,7 @@ function Sidebar(props) {
             key={index}
             className="sidebar_list_item"
             style={{ backgroundColor: item }}
-            onClick={() => props.addNote(item)}
+            onClick={() => addNote(item)}
           />
         ))}
       </ul>
