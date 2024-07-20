@@ -11,13 +11,13 @@ function NoteContainer(props) {
 
   return (
     <div className="note-container">
-      <h2>Quick Notes</h2>
+      <h2>SnapNotes</h2>
       <div className="note-container_notes custom-scroll">
         {notes?.length > 0 ? (
-          notes.map((item) => (
+          notes.map((note) => (
             <Note
-              key={item.id}
-              note={item}
+              key={note.id}
+              note={note}
               deleteNote={props.deleteNote}
               updateText={props.updateText}
             />

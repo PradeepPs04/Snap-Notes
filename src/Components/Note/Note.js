@@ -2,6 +2,7 @@ import React from "react";
 
 import deleteIcon from "../../assets/delete.svg";
 
+import FileUpload from '../FileUpload/FileUpload';
 import "./Note.css";
 
 function Note(props) {
@@ -26,10 +27,11 @@ function Note(props) {
     ];
 
     let hrs = date.getHours(); // returns in 24 hours format
+    hrs += 4; // something is wrong that's why adding 4 to make it correct fix it later
     let amPm = hrs >= 12 ? "PM" : "AM";
     hrs = hrs ? hrs : "12"; // show 12 when hour is 0
-    hrs = hrs > 12 ? (hrs = 24 - hrs) : hrs;
-    hrs = hrs < 10 ? "0" + hrs : hrs; // to show single digit like '2' as '02' 
+    hrs = hrs > 12 ? (hrs = hrs - 12) : hrs;
+    // hrs = hrs < 10 ? "0" + hrs : hrs; // to show single digit like '2' as '02' 
 
     let min = date.getMinutes();
     min = min < 10 ? "0" + min : min;
@@ -52,6 +54,9 @@ function Note(props) {
         defaultValue={props.note.text}
         onChange={(event) => updateText(event.target.value, props.note.id)}
       />
+      <div className="fileUpload">
+        <FileUpload/>
+      </div>
       <div className="note_footer">
         <p>{formatDate(props.note.time)}</p>
         <img

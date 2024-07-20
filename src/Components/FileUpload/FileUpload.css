@@ -1,0 +1,20 @@
+.upload-para {
+    display: flex;
+    gap: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.upload-para:hover .btn {
+    scale: 1.2;
+}
+
+.btn {
+    all: unset;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.btn:hover {
+    scale: 1.3;
+}
