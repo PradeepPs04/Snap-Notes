@@ -19,11 +19,6 @@
   border: none;
 }
 
-.fileUpload {
-  position: absolute;
-  bottom: 20%;
-}
-
 .note_footer {
   display: flex;
   justify-content: space-between;

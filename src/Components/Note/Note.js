@@ -2,7 +2,6 @@ import React from "react";
 
 import deleteIcon from "../../assets/delete.svg";
 
-import FileUpload from '../FileUpload/FileUpload';
 import "./Note.css";
 
 function Note(props) {
@@ -54,9 +53,6 @@ function Note(props) {
         defaultValue={props.note.text}
         onChange={(event) => updateText(event.target.value, props.note.id)}
       />
-      <div className="fileUpload">
-        <FileUpload/>
-      </div>
       <div className="note_footer">
         <p>{formatDate(props.note.time)}</p>
         <img

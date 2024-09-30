@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Sanp-Notes/static/css/main.2420767e.chunk.css",
+    "main.js": "/Sanp-Notes/static/js/main.bfb2755e.chunk.js",
+    "main.js.map": "/Sanp-Notes/static/js/main.bfb2755e.chunk.js.map",
+    "runtime-main.js": "/Sanp-Notes/static/js/runtime-main.fac454a7.js",
+    "runtime-main.js.map": "/Sanp-Notes/static/js/runtime-main.fac454a7.js.map",
+    "static/js/2.c7967931.chunk.js": "/Sanp-Notes/static/js/2.c7967931.chunk.js",
+    "static/js/2.c7967931.chunk.js.map": "/Sanp-Notes/static/js/2.c7967931.chunk.js.map",
+    "index.html": "/Sanp-Notes/index.html",
+    "static/css/main.2420767e.chunk.css.map": "/Sanp-Notes/static/css/main.2420767e.chunk.css.map",
+    "static/js/2.c7967931.chunk.js.LICENSE.txt": "/Sanp-Notes/static/js/2.c7967931.chunk.js.LICENSE.txt",
+    "static/media/delete.c184eb9e.svg": "/Sanp-Notes/static/media/delete.c184eb9e.svg",
+    "static/media/plus.f5d4d283.png": "/Sanp-Notes/static/media/plus.f5d4d283.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fac454a7.js",
+    "static/js/2.c7967931.chunk.js",
+    "static/css/main.2420767e.chunk.css",
+    "static/js/main.bfb2755e.chunk.js"
+  ]
+}
